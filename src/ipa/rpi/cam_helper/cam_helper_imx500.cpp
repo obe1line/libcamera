@@ -257,7 +257,7 @@ void CamHelperImx500::parseInferenceData(libcamera::Span<const uint8_t> buffer,
 				exported.height = inputTensorInfo.height;
 				exported.numChannels = inputTensorInfo.channels;
 				strncpy(exported.networkName, inputTensorInfo.networkName.c_str(),
-					sizeof(exported.networkName));
+					sizeof(exported.networkName) - 1);
 				exported.networkName[sizeof(exported.networkName) - 1] = '\0';
 				metadata.set("cnn.input_tensor_info", exported);
 				metadata.set("cnn.input_tensor", std::move(inputTensorInfo.data));
