@@ -70,6 +70,20 @@ const CameraSensorProperties *CameraSensorProperties::get(const std::string &sen
 				{ controls::draft::TestPatternModeColorBarsFadeToGray, 3 },
 			},
 		} },
+		{ "evdmoom1", {
+			.unitCellSize = { 2200, 2200 },
+			.testPatternModes = {
+				{ controls::draft::TestPatternModeOff, 0 },
+				{ controls::draft::TestPatternModeSolidColor, 1 },
+				{ controls::draft::TestPatternModeColorBars, 2 },
+				{ controls::draft::TestPatternModeColorBarsFadeToGray, 3 },
+				/*
+				 * No corresponding test pattern mode
+				 * 256: "Walking 1s (10 bit)",
+				 * 257: "Walking 1s (8 bit)",
+				 */
+			},
+		} },
 		{ "hi846", {
 			.unitCellSize = { 1120, 1120 },
 			.testPatternModes = {
@@ -258,7 +272,7 @@ const CameraSensorProperties *CameraSensorProperties::get(const std::string &sen
 				{ controls::draft::TestPatternModeColorBars, 1 },
 				{ controls::draft::TestPatternModeColorBarsFadeToGray, 2 },
 				/*
-				 * No corresponding test patter mode
+				 * No corresponding test pattern mode
 				 * 3: "Vertical Color Bar Type 3",
 				 * 4: "Vertical Color Bar Type 4"
 				 */
@@ -271,7 +285,7 @@ const CameraSensorProperties *CameraSensorProperties::get(const std::string &sen
 				{ controls::draft::TestPatternModeColorBars, 1 },
 				{ controls::draft::TestPatternModeColorBarsFadeToGray, 2 },
 				/*
-				 * No corresponding test patter mode
+				 * No corresponding test pattern mode
 				 * 3: "Vertical Color Bar Type 3",
 				 * 4: "Vertical Color Bar Type 4"
 				 */
