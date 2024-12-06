@@ -912,8 +912,10 @@ int CameraSensor::applyConfiguration(const SensorConfiguration &config,
  */
 int CameraSensor::sensorInfo(IPACameraSensorInfo *info) const
 {
-	if (!bayerFormat_)
+	if (!bayerFormat_) {
+		LOG(CameraSensor, Error) << "No Bayer format supported";
 		return -EINVAL;
+	}
 
 	info->model = model();
 
@@ -949,8 +951,10 @@ int CameraSensor::sensorInfo(IPACameraSensorInfo *info) const
 	/* The bit depth and image size depend on the currently applied format. */
 	V4L2SubdeviceFormat format{};
 	ret = subdev_->getFormat(pad_, &format);
-	if (ret)
+	if (ret) {
+		LOG(CameraSensor, Error) << "Failed to retrieve sensor format for pad " << pad_;
 		return ret;
+	}
 
 	info->bitsPerPixel = MediaBusFormatInfo::info(format.code).bitsPerPixel;
 	info->outputSize = format.size;
